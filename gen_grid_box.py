@@ -135,7 +135,7 @@ horiz_svg.write(("  <g id=\"outlines\" "
 # (Flat line across the top and right.)
 horiz_svg.write(("    <path d=\"M0,0 h%.2f v%.2f h-%.2f v%.2f "
                  %((box_w - (gaps_t * 2)),
-                   (cell_h - gaps_t),
+                   (cell_h),
                    (cren_w - gaps_t),
                    (gaps_t))))
 # Bottom-Right -> Bottom-Left
@@ -167,7 +167,7 @@ vert_svg.write(("  <g id=\"outlines\" "
 # Draw a path to outline a vertical wall of the box.
 # (Flat line across the top.)
 vert_svg.write(("    <path d=\"M0,0 h%.2f v%.2f h%.2f "
-                %(box_h - gaps_t, cren_l - gaps_t, gaps_t)))
+                %(box_h - gaps_t, cren_l, gaps_t)))
 # Top-Right -> Bottom-Right.
 c_sign = "-"
 for i in range(0, num_crens_y-2):
@@ -177,7 +177,7 @@ for i in range(0, num_crens_y-2):
   else:
     c_sign = ""
 # (Flat lines for the bottom and left edges.)
-vert_svg.write("v%.2f h-%.2f "%(cren_l - gaps_t, box_h - gaps_t))
+vert_svg.write("v%.2f h-%.2f "%(cren_l, box_h - gaps_t))
 vert_svg.write("L0,0 Z\" />\n")
 # Close the 'group' and SVG tags.
 vert_svg.write("  </g>\n</svg>\n")
